@@ -1,0 +1,22 @@
+{
+  "name": "qwerty-sia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CalvinYusnoveri/QWERTY-SIA.git"
+  },
+  "keywords": [
+    "chatbot"
+  ],
+  "author": "Calvin Yusnoveri,Zhao Lutong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CalvinYusnoveri/QWERTY-SIA/issues"
+  },
+  "homepage": "https://github.com/CalvinYusnoveri/QWERTY-SIA#readme"
+}
