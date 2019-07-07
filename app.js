@@ -10,3 +10,5 @@ app.post('/api/QWERTY-SIA', (req, res, next) => {
 
 // set to port 3000 for local testing
 const port = process.env.PORT || 3000
+
+app.listen(port, () => console.log(`Listening to port: ${port}...`))
