@@ -11,7 +11,14 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))
 
 app.post('/api/QWERTY-SIA', (req, res, next) => {
   console.log('/api/QWERTY-SIA is called...')
-  console.log(req.body); next()},
+  console.log('req.body: \n', req.body)
+
+  // capture action
+  let action = req.body.queryResult.action
+  console.log('action: ', action)
+
+
+  next()},
   (req, res) => res.send(req.body))
 
 // set to port 3000 for local testing
