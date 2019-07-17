@@ -6,6 +6,7 @@ const app = express()
 
 app.post('/api/QWERTY-SIA', (req, res, next) => {
   console.log('/api/QWERTY-SIA is called...'); next()},
+  console.log(req.body)
   (req, res) => res.send(req.body))
 
 // set to port 3000 for local testing
