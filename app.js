@@ -9,7 +9,7 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json({limit: '50mb'}))
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))
 
-app.post('/api/QWERTY-SIA', (req, res, next) => {
+app.post('/api/QWERTY-SIA', async (req, res, next) => {
   console.log('/api/QWERTY-SIA is called...')
   console.log('req.body: \n', req.body)
 
