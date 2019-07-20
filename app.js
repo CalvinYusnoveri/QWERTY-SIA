@@ -9,31 +9,20 @@ const cors = require('cors');
 // import modules
 const replaceURL = require('./modules/replace-url')
 
-const inventory_routes = require('./server/routes/api/InventoryRoutes');
+const inventory_routes = require('./server/routes/api/inventory_data');
+
 
 // Tell the bodyparser middleware to accept certain amount of data only
 app.use(bodyParser.json({limit: '50mb'}))
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))
 app.use(cors());
 
-app.post('/api/QWERTY-SIA', async (req, res, next) => {
-  console.log('/api/QWERTY-SIA is called...')
-  console.log('req.body: \n', req.body)
-
-  // capture action
-  let action = req.body.queryResult.action
-  console.log('action: ', action)
-
-  next()},
-
-  replaceURL,
-  doInventoryManagement,
-
-  (req, res) => res.send(req.body))
 
 
 
-app.use('/api/inventory',inventory_routes);
+app.use('/QWERTY-SIA/api',inventory_routes);
+
+
 
 const port = process.env.PORT || 5000;
 
