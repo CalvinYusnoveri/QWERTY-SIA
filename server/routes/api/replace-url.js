@@ -22,7 +22,6 @@ async function replaceURL(req, res, next) {
       } catch (err) {console.log(err); continue}
     }
 
-  delete req.body.queryResult
   next()
   }
 

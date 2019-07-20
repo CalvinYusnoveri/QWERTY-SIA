@@ -29,8 +29,8 @@ app.post('/QWERTY-SIA/api', (req, res, next) => {
   next()},
   rurl.replaceURL,
   (req, res) => {
-    console.log('req.body')
-    res.send(req.body)})
+    console.log(req.body.queryResult)
+    res.send(req.body.queryResult)})
 
 const port = process.env.PORT || 5000;
 
