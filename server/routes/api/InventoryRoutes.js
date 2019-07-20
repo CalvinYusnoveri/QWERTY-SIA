@@ -11,7 +11,6 @@ const url = `${process.env.MONGO_URL}`;
 
 const router = express.Router();
 
-console.log(mydb,mycollection,url);
 //Get Post
 router.get('/get', async(req,res)=>{
     const fallback = await InventoryData();
