@@ -22,8 +22,8 @@ app.use('/QWERTY-SIA/api',inventory_routes);
 
 
 // endpoint here
-app.post('/api/QWERTY-SIA', (req, res, next) => {
-  console.log('/api/QWERTY-SIA is called...')
+app.post('/QWERTY-SIA/api', (req, res, next) => {
+  console.log('/QWERTY-SIA/api is called...')
   console.log('req.body:\n', req.body)
   console.log('action: ', req.body.queryResult.action)
   next()},
