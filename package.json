@@ -4,6 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+<<<<<<< HEAD
+=======
+    "test": "echo \"Error: no test specified\" && exit 1",
+>>>>>>> 1e92fe7860a126bee6af66c94aeb1aca94d07aab
     "start": "node app.js"
   },
   "repository": {
@@ -18,9 +22,18 @@
   "homepage": "https://github.com/CalvinYusnoveri/QWERTY-SIA#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+<<<<<<< HEAD
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "mongodb": "^3.2.7"
   }
+=======
+    "dialogflow-fulfillment": "^0.6.1",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {}
+>>>>>>> 1e92fe7860a126bee6af66c94aeb1aca94d07aab
 }
