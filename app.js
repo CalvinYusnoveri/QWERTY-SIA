@@ -6,6 +6,9 @@ const app = express()
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+// import modules
+const replaceURL = require('./modules/replace-url')
+
 const inventory_routes = require('./server/routes/api/InventoryRoutes');
 
 // Tell the bodyparser middleware to accept certain amount of data only
@@ -22,6 +25,10 @@ app.post('/api/QWERTY-SIA', async (req, res, next) => {
   console.log('action: ', action)
 
   next()},
+
+  replaceURL,
+  doInventoryManagement,
+
   (req, res) => res.send(req.body))
 
 
