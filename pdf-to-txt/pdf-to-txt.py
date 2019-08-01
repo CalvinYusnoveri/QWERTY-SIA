@@ -1,7 +1,7 @@
 # This file contains callable function to:
 # 	1. convert PDF to txt file
 # 	2. tokenize them
-#	3. cleans txt file so it can be fed to bot
+#	  3. cleans txt file so it can be fed to bot
 
 # Simply import Converter and call pdf_to_txt() function and tokenize_and_clean() if "necessary"
 # adjust W, L, M and B parameters accordingly before running file
@@ -26,6 +26,7 @@
 
 import string
 import PyPDF2
+import subprocess
 
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
@@ -213,6 +214,10 @@ if __name__ == "__main__":
 
 	# specify file location here
 	pdf_file_obj_location = "Boeing_737-300_400_500_Aircraft_Maintena.pdf"
+
+	pdfa = subprocess.check_output(['ocrmypdf', pdf_file_obj_location])
+
+	print (pdfa)
 
 	print ("converting {} to txt file".format(pdf_file_obj_location))
 

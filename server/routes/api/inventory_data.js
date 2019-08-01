@@ -38,12 +38,12 @@ router.get('/inventory/get', async(req,res)=>{
 
 //Establish the mongodb connection (until collection)
 async function InventoryData(req){
-    
+
     if (req.body.queryResult.action === 'inventory-data') {
         console.log('action: inventory-data');
         try{
           const mongoClient = await mongodb.MongoClient.connect(url,{useNewUrlParser:true});
-          return mongoClient.db(mydb).collection(mycollection); 
+          return mongoClient.db(mydb).collection(mycollection);
         } catch{
           console.log("error connecting to db...")
         }

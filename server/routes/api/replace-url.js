@@ -1,3 +1,6 @@
+const fs = require('fs')
+const PDFParser = require("pdf2json")
+
 async function replaceURL(req, res, next) {
   if (req.body.queryResult.action === 'replace-url') {
     console.log('action === replace-url')
@@ -29,4 +32,22 @@ async function replaceURL(req, res, next) {
 
 }
 
+async function pdf2JSON(req, res, next) {
+  console.log('in pdf2JSON')
+  let pdfParser = new PDFParser()
+
+  let pdfFilePath = "./pdf-to-txt/747-400_amm-chap-32.pdf"
+
+  fs.readFile(pdfFilePath, (err, pdfBuffer) => {
+    if (!err) {
+      console.log('inside')
+      pdfParser.parseBuffer(pdfBuffer);
+      fs.writeFile("./pdf-to-txt/747-400_amm-chap-32.json", JSON.stringify(pdfParser.getAllFieldsTypes()))
+    }
+    else {console.log('error')}
+    next()
+  })
+}
+
+exports.pdf2JSON = pdf2JSON
 exports.replaceURL = replaceURL;
