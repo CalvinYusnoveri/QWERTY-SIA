@@ -16,15 +16,17 @@ router.get('',async(req,res)=>{
 })
 
 //Get Post
-router.get('/inventory/get', async(req,res)=>{
+router.post('/inventory/get', async(req,res)=>{
 
     const inventory_collection = await InventoryData(req);
     if (inventory_collection == 'action !== inventory-data'){
       res.send('action !== inventory-data');
     }else{
-      inventory_result = await inventory_collection.find({}).toArray();
+      inv = req.body.queryResult.parameters.Inventory
+      inventory_result = await inventory_collection.find({"inventory": `${inv}`}).toArray();
       inventory_data = JSON.stringify(inventory_result,null,2);
-      res.send(inventory_data);
+      req.body.queryResult.fulfillmentText += `\n${inventory_data}`
+      res.send(req.body.queryResult);
     }
 
 })
