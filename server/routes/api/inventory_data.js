@@ -22,7 +22,7 @@ async function getInv(req, res, next) {
   }else{
     console.log('in getInv')
     var inv = {'inventory': `${req.body.queryResult.parameters.Inventory}`}
-    inventory_result = await inventory_collection.findOne(inv).toArray();
+    inventory_result = await inventory_collection.findOne(inv);
     inventory_data = JSON.stringify(inventory_result,null,2);
     req.body.queryResult['fulfillmentText'] += `${req.body.queryResult.fulfillmentText}\n${inventory_data}`
     res.send(req.body.queryResult);
