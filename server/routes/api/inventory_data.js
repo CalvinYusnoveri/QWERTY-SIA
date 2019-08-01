@@ -61,8 +61,8 @@ async function InventoryData(req){
           const mongoClient = await mongodb.MongoClient.connect(url,{useNewUrlParser:true});
           console.log('mongoClient', mongoClient)
           return mongoClient.db(mydb).collection(mycollection);
-        } catch{
-          console.log("error connecting to db...")
+        } catch (err) {
+          console.log("error connecting to db...\n", err)
         }
       } else {
         console.log('action is not inventory-data :(');
