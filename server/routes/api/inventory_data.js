@@ -25,6 +25,7 @@ async function getInv(req, res, next) {
     inventory_result = await inventory_collection.findOne(inv);
     inventory_data = JSON.stringify(inventory_result,null,2);
     req.body.queryResult['fulfillmentText'] += `${req.body.queryResult.fulfillmentText}\n${inventory_data}`
+    console.log(JSON.strignify(req.body.queryResult))
     res.send(req.body.queryResult);
   }
 }
