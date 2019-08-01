@@ -8,15 +8,12 @@ const cors = require('cors');
 
 // import routes
 const rurl = require('./server/routes/api/replace-url');
-const inventory_routes = require('./server/routes/api/inventory_data');
+const invd = require('./server/routes/api/inventory_data');
 
 // Tell the bodyparser middleware to accept certain amount of data only
 app.use(bodyParser.json({limit: '50mb'}))
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))
 app.use(cors());
-
-// endpoint starts here
-app.use('/QWERTY-SIA/api',inventory_routes);
 
 app.post('/QWERTY-SIA/api', (req, res, next) => {
   console.log('/QWERTY-SIA/api is called...')
@@ -24,6 +21,7 @@ app.post('/QWERTY-SIA/api', (req, res, next) => {
   console.log('action: ', req.body.queryResult.action)
   next()},
   rurl.replaceURL,
+  invd.getInv,
   (req, res) => {
     console.log(req.body.queryResult)
     res.send(req.body.queryResult)})
