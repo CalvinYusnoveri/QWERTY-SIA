@@ -10,7 +10,7 @@ const url = `${process.env.MONGO_URL}`;
 
 const router = express.Router();
 
-router.get('',async(req,res)=>{
+router.get('/test',async(req,res)=>{
   res.send("This is a test meassage.");
   console.log("This is a test meassage.");
 })
@@ -24,6 +24,7 @@ router.get('/inventory/get', async(req,res)=>{
     }else{
       inventory_result = await inventory_collection.find({}).toArray();
       inventory_data = JSON.stringify(inventory_result,null,2);
+      
       res.send(inventory_data);
     }
 
@@ -38,6 +39,9 @@ router.get('/inventory/get', async(req,res)=>{
 
 //Establish the mongodb connection (until collection)
 async function InventoryData(req){
+
+  // const mongoClient = await mongodb.MongoClient.connect(url,{useNewUrlParser:true});
+  // return mongoClient.db(mydb).collection(mycollection);
     
     if (req.body.queryResult.action === 'inventory-data') {
         console.log('action: inventory-data');

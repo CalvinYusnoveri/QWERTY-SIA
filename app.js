@@ -11,6 +11,8 @@ const cors = require('cors');
 // import routes
 const rurl = require('./server/routes/api/replace-url');
 const inventory_routes = require('./server/routes/api/inventory_data');
+const maintance_routes = require('./server/routes/api/maintance_log');
+
 
 // Tell the bodyparser middleware to accept certain amount of data only
 app.use(bodyParser.json({limit: '50mb'}))
@@ -19,6 +21,8 @@ app.use(cors());
 
 
 app.use('/QWERTY-SIA/api',inventory_routes);
+app.use('/QWERTY-SIA/api',maintance_routes);
+
 
 
 // endpoint here
