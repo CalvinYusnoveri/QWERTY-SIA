@@ -21,7 +21,6 @@ app.post('/QWERTY-SIA/api', (req, res, next) => {
   console.log('action: ', req.body.queryResult.action)
   next()},
   rurl.replaceURL,
-  invd.getInv,
   (req, res) => {
     console.log(req.body.queryResult)
     res.send(req.body.queryResult)})
