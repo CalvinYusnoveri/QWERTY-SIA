@@ -6,8 +6,6 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-
-
 // import routes
 const rurl = require('./server/routes/api/replace-url');
 const inventory_routes = require('./server/routes/api/inventory_data');
@@ -32,7 +30,10 @@ app.post('/QWERTY-SIA/api', (req, res, next) => {
   console.log('action: ', req.body.queryResult.action)
   next()},
   rurl.replaceURL,
-  (req, res) => res.send(req.body))
+  invd.getInv,
+  (req, res) => {
+    console.log(req.body.queryResult)
+    res.send(req.body.queryResult)})
 
 const port = process.env.PORT || 5000;
 

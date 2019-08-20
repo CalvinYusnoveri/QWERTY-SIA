@@ -15,17 +15,35 @@ router.get('/test',async(req,res)=>{
   console.log("This is a test meassage.");
 })
 
+async function getInv(req, res, next) {
+  const inventory_collection = await InventoryData(req);
+  if (inventory_collection == 'action !== inventory-data'){
+    res.send('action !== inventory-data');
+  }else{
+    console.log('in getInv')
+    var inv = {'name': `${req.body.queryResult.parameters.Inventory}`}
+    inventory_result = await inventory_collection.find({});
+    console.log('inv', inv)
+    inventory_data = JSON.stringify(inventory_result,null,2);
+    console.log('inventory_data', inventory_data)
+    req.body.queryResult['fulfillmentText'] = inventory_data
+    console.log(JSON.stringify(req.body.queryResult))
+    res.send(req.body.queryResult);
+  }
+}
+
 //Get Post
-router.get('/inventory/get', async(req,res)=>{
+router.post('/inventory/get', async(req,res)=>{
 
     const inventory_collection = await InventoryData(req);
     if (inventory_collection == 'action !== inventory-data'){
       res.send('action !== inventory-data');
     }else{
-      inventory_result = await inventory_collection.find({}).toArray();
+      inv = req.body.queryResult.parameters.Inventory
+      inventory_result = await inventory_collection.find({"inventory": `${inv}`}).toArray();
       inventory_data = JSON.stringify(inventory_result,null,2);
-      
-      res.send(inventory_data);
+      req.body.queryResult.fulfillmentText += `\n${inventory_data}`   // Change
+      res.send(req.body.queryResult);
     }
 
 })
@@ -47,9 +65,10 @@ async function InventoryData(req){
         console.log('action: inventory-data');
         try{
           const mongoClient = await mongodb.MongoClient.connect(url,{useNewUrlParser:true});
-          return mongoClient.db(mydb).collection(mycollection); 
-        } catch{
-          console.log("error connecting to db...")
+          console.log('mongoClient', mongoClient)
+          return mongoClient.db(mydb).collection(mycollection);
+        } catch (err) {
+          console.log("error connecting to db...\n", err)
         }
       } else {
         console.log('action is not inventory-data :(');
@@ -58,6 +77,4 @@ async function InventoryData(req){
 
 }
 
-
-
-module.exports = router;
+exports.getInv = getInv
