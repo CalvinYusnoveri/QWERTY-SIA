@@ -1,0 +1,170 @@
+//get-inventory-data
+{
+  "responseId": "af6a54d0-38ab-4eb4-b444-98748f75b35f-fd8ff490",
+  "queryResult": {
+    "queryText": "get me boeing 737 manual",
+    "action": "get-inventory-data",
+    "parameters": {
+      "name":"castle spindle nut"
+    },
+    "allRequiredParamsPresent": true,
+    "fulfillmentText": "Here's your Boeing_737-300_400_500_Aircraft_Maintena page 737",
+    "fulfillmentMessages": [
+      {
+        "payload": {
+          "telegram": {
+            "text": "Pick a color",
+            "reply_markup": {
+              "inline_keyboard": [
+                [
+                  {
+                    "url": "https://stackoverflow.com/questions/38376354/how-can-i-show-keyboard-buttons-in-a-telegram-bot-integrated-with-api-ai",
+                    "text": "Here is your @pdf@, page @number@"
+                  }
+                ]
+              ]
+            },
+            "resize_keyboard": true
+          }
+        },
+        "platform": "TELEGRAM"
+      },
+      {
+        "text": {
+          "text": [
+            "Here's your Boeing_737-300_400_500_Aircraft_Maintena page 737"
+          ]
+        }
+      }
+    ],
+    "intent": {
+      "name": "projects/qwerty-sia-usxfqy/agent/intents/03c3c826-60ce-4588-ab34-d1345e923f63",
+      "displayName": "Find Manual Flow - Get Manual"
+    },
+    "intentDetectionConfidence": 0.4865323,
+    "diagnosticInfo": {
+      "webhook_latency_ms": 150
+    },
+    "languageCode": "en"
+  },
+  "webhookStatus": {
+    "message": "Webhook execution successful"
+  }
+}
+
+//maintance-data-get-from-db
+{
+  "responseId": "af6a54d0-38ab-4eb4-b444-98748f75b35f-fd8ff490",
+  "queryResult": {
+    "queryText": "get me boeing 737 manual",
+    "action": "maintance-data-get-from-db",
+    "parameters": {
+      "planeID": "1"
+    },
+    "allRequiredParamsPresent": true,
+    "fulfillmentText": "Here's your Boeing_737-300_400_500_Aircraft_Maintena page 737",
+    "fulfillmentMessages": [
+      {
+        "payload": {
+          "telegram": {
+            "text": "Pick a color",
+            "reply_markup": {
+              "inline_keyboard": [
+                [
+                  {
+                    "url": "https://stackoverflow.com/questions/38376354/how-can-i-show-keyboard-buttons-in-a-telegram-bot-integrated-with-api-ai",
+                    "text": "Here is your @pdf@, page @number@"
+                  }
+                ]
+              ]
+            },
+            "resize_keyboard": true
+          }
+        },
+        "platform": "TELEGRAM"
+      },
+      {
+        "text": {
+          "text": [
+            "Here's your Boeing_737-300_400_500_Aircraft_Maintena page 737"
+          ]
+        }
+      }
+    ],
+    "intent": {
+      "name": "projects/qwerty-sia-usxfqy/agent/intents/03c3c826-60ce-4588-ab34-d1345e923f63",
+      "displayName": "Find Manual Flow - Get Manual"
+    },
+    "intentDetectionConfidence": 0.4865323,
+    "diagnosticInfo": {
+      "webhook_latency_ms": 150
+    },
+    "languageCode": "en"
+  },
+  "webhookStatus": {
+    "message": "Webhook execution successful"
+  }
+}
+
+
+
+//maintance-data-push-to-db
+{
+  "responseId": "e312cc72-26f4-41dd-8cf0-0fb941344c65-21947381",
+  "queryResult": {
+    "queryText": "get 747-400 manual page 5",
+    "action": "maintance-data-push-to-db",
+    "parameters": {
+    "planeID": "1",
+    "planeType": "737-400",
+    "personnel":"Cheryl",
+    "defectType":"Engine Issue",
+    "defectText":"MAINT ENTRY DUCT ASSY PN: L9871230AZ IPC 36-12-42-01 ITEM 300B CANNIBALIZED TOSERVICE 2Q-QK7.",
+    "defectiveComponents":["19820","17727"],
+    "priority":"High",
+    "sysany": "test1"
+  },
+    "allRequiredParamsPresent": true,
+    "fulfillmentText": "Here's your https://qwerty-sia.s3-ap-southeast-1.amazonaws.com/pdf/747-400_amm-chap-32.pdf page -400",
+    "fulfillmentMessages": [
+      {
+        "payload": {
+          "telegram": {
+            "reply_markup": {
+              "inline_keyboard": [
+                [
+                  {
+                    "text": "Click here to open this pdf to page -400",
+                    "url": "https://qwerty-sia.s3-ap-southeast-1.amazonaws.com/pdf/747-400_amm-chap-32.pdf#page=-400"
+                  }
+                ]
+              ]
+            },
+            "resize_keyboard": true,
+            "text": "Here is your requested pdf"
+          }
+        },
+        "platform": "TELEGRAM"
+      },
+      {
+        "text": {
+          "text": [
+            "Here's your https://qwerty-sia.s3-ap-southeast-1.amazonaws.com/pdf/747-400_amm-chap-32.pdf page -400"
+          ]
+        }
+      }
+    ],
+    "intent": {
+      "name": "projects/qwerty-sia-usxfqy/agent/intents/03c3c826-60ce-4588-ab34-d1345e923f63",
+      "displayName": "Find Manual Flow - Get Manual"
+    },
+    "intentDetectionConfidence": 1,
+    "diagnosticInfo": {
+      "webhook_latency_ms": 351
+    },
+    "languageCode": "en"
+  },
+  "webhookStatus": {
+    "message": "Webhook execution successful"
+  }
+}

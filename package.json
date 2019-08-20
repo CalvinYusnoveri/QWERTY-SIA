@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev-start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -26,5 +27,7 @@
     "path": "^0.12.7",
     "pdf2json": "^1.1.8"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
 }
