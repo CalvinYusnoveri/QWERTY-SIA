@@ -1,5 +1,5 @@
-//get-inventory-data
-{
+[
+{ 
   "responseId": "af6a54d0-38ab-4eb4-b444-98748f75b35f-fd8ff490",
   "queryResult": {
     "queryText": "get me boeing 737 manual",
@@ -50,9 +50,9 @@
   "webhookStatus": {
     "message": "Webhook execution successful"
   }
-}
+},
 
-//maintance-data-get-from-db
+
 {
   "responseId": "af6a54d0-38ab-4eb4-b444-98748f75b35f-fd8ff490",
   "queryResult": {
@@ -104,11 +104,11 @@
   "webhookStatus": {
     "message": "Webhook execution successful"
   }
-}
+},
 
 
 
-//maintance-data-push-to-db
+
 {
   "responseId": "e312cc72-26f4-41dd-8cf0-0fb941344c65-21947381",
   "queryResult": {
@@ -168,3 +168,4 @@
     "message": "Webhook execution successful"
   }
 }
+]
